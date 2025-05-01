@@ -1,5 +1,15 @@
-package Bourse;
+package bourse;
 
+/**
+ * Représente une valeur boursière individuelle, avec ses caractéristiques financières
+ * et son appartenance sectorielle.
+ * <p>
+ * Chaque instance correspond à une entreprise cotée en bourse, avec des données
+ * telles que la dernière vente, le volume, le secteur économique, etc.
+ * </p>
+ *
+ * @author ChatGPT (OpenAI)
+ */
 public class ValeurBoursiere {
 
     private String symbole;
@@ -14,7 +24,24 @@ public class ValeurBoursiere {
     private TypeSecteur secteur;
     private String industrie;
 
-    public ValeurBoursiere(String symbole, String nom, double derniereVente, double changementNet, double pourcentageChangement, double capitalisationBoursiere, String pays, int anneeEntreeEnMarche, int volume, TypeSecteur secteur, String industrie) {
+    /**
+     * Constructeur principal pour créer une valeur boursière complète.
+     *
+     * @param symbole                 Le symbole boursier de l'entreprise (ex: AAPL)
+     * @param nom                     Le nom de l'entreprise
+     * @param derniereVente           Le dernier prix de vente enregistré
+     * @param changementNet           Le changement net par rapport à la veille
+     * @param pourcentageChangement   Le pourcentage de changement
+     * @param capitalisationBoursiere La capitalisation boursière de l'entreprise
+     * @param pays                    Le pays d'origine de l'entreprise
+     * @param anneeEntreeEnMarche     L'année d'entrée sur le marché boursier
+     * @param volume                  Le volume échangé
+     * @param secteur                 Le secteur économique de l'entreprise (traduit en TypeSecteur)
+     * @param industrie               L'industrie précise dans laquelle elle opère
+     */
+    public ValeurBoursiere(String symbole, String nom, double derniereVente, double changementNet,
+                           double pourcentageChangement, double capitalisationBoursiere, String pays,
+                           int anneeEntreeEnMarche, int volume, TypeSecteur secteur, String industrie) {
         this.symbole = symbole;
         this.nom = nom;
         this.derniereVente = derniereVente;
@@ -116,6 +143,11 @@ public class ValeurBoursiere {
         this.industrie = industrie;
     }
 
+    /**
+     * Retourne une représentation textuelle complète de cette valeur boursière.
+     *
+     * @return Chaîne contenant tous les attributs principaux de l’objet.
+     */
     @Override
     public String toString() {
         return "ValeurBoursiere{" +
