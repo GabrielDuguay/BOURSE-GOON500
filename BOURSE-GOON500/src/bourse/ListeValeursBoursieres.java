@@ -22,7 +22,7 @@ public class ListeValeursBoursieres {
     /**
      * Chemin d'accès au fichier CSV à partir du répertoire du projet.
      */
-    private static final String pathIn = System.getProperty("user.dir") + fSep + "src" + fSep + "main" + fSep + "donnees" + fSep;
+    private static final String pathIn = System.getProperty("user.dir") + fSep + "src" + fSep + "donnees" + fSep + "nasdaq";
 
     private ArrayList<ValeurBoursiere> valeursBoursieres;
 
