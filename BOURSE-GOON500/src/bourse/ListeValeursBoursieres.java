@@ -22,7 +22,7 @@ public class ListeValeursBoursieres {
     /**
      * Chemin d'accès au fichier CSV à partir du répertoire du projet.
      */
-    private static final String pathIn = System.getProperty("user.dir") + fSep + "src" + fSep + "donnees" + fSep + "nasdaq";
+    private static final String pathIn = System.getProperty("user.dir") + fSep + "src" + fSep + "donnees" + fSep + "nasdaq.csv";
 
     private ArrayList<ValeurBoursiere> valeursBoursieres;
 
@@ -59,11 +59,13 @@ public class ListeValeursBoursieres {
             BufferedReader fichier = new BufferedReader(new FileReader(pathIn));
 
             ligne = fichier.readLine();
+            ligne = fichier.readLine();
+
             while (ligne != null) {
                 String[] valeurs = ligne.split(",");
                 String symbole = valeurs[0];
                 String nom = valeurs[1];
-                double derniereVente = Double.parseDouble(valeurs[2]);
+                double derniereVente = Double.parseDouble(valeurs[2].replace("$", "").trim());
                 double changementNet = Double.parseDouble(valeurs[3]);
                 double pourcentageChangement = Double.parseDouble(valeurs[4]);
                 double capitalisationBoursiere = Double.parseDouble(valeurs[5]);
