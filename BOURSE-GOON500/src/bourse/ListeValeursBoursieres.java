@@ -67,19 +67,18 @@ public class ListeValeursBoursieres {
                 String nom = valeurs[1];
                 double derniereVente = Double.parseDouble(valeurs[2].replace("$", "").trim());
                 double changementNet = Double.parseDouble(valeurs[3]);
-                double pourcentageChangement = Double.parseDouble(valeurs[4]);
+                double pourcentageChangement = Double.parseDouble(valeurs[4].replace("%", "").trim()) / 100; //24% vers 0.24
                 double capitalisationBoursiere = Double.parseDouble(valeurs[5]);
                 String pays = valeurs[6];
                 int anneeEntreeEnMarche = Integer.parseInt(valeurs[7]);
                 int volume = Integer.parseInt(valeurs[8]);
                 String secteurTexte = valeurs[9];
-                String industrie = valeurs[10];
 
                 TypeSecteur typeSecteur = convertisseur.convertir(secteurTexte.trim());
 
                 ValeurBoursiere vb = new ValeurBoursiere(symbole, nom, derniereVente, changementNet,
                         pourcentageChangement, capitalisationBoursiere, pays, anneeEntreeEnMarche, volume,
-                        typeSecteur, industrie);
+                        typeSecteur);
 
                 valeursBoursieres.add(vb);
 

@@ -22,7 +22,6 @@ public class ValeurBoursiere {
     private int anneeEntreeEnMarche;
     private int volume;
     private TypeSecteur secteur;
-    private String industrie;
 
     /**
      * Constructeur principal pour créer une valeur boursière complète.
@@ -37,11 +36,10 @@ public class ValeurBoursiere {
      * @param anneeEntreeEnMarche     L'année d'entrée sur le marché boursier
      * @param volume                  Le volume échangé
      * @param secteur                 Le secteur économique de l'entreprise (traduit en TypeSecteur)
-     * @param industrie               L'industrie précise dans laquelle elle opère
      */
     public ValeurBoursiere(String symbole, String nom, double derniereVente, double changementNet,
                            double pourcentageChangement, double capitalisationBoursiere, String pays,
-                           int anneeEntreeEnMarche, int volume, TypeSecteur secteur, String industrie) {
+                           int anneeEntreeEnMarche, int volume, TypeSecteur secteur) {
         this.symbole = symbole;
         this.nom = nom;
         this.derniereVente = derniereVente;
@@ -52,7 +50,6 @@ public class ValeurBoursiere {
         this.anneeEntreeEnMarche = anneeEntreeEnMarche;
         this.volume = volume;
         this.secteur = secteur;
-        this.industrie = industrie;
     }
 
     public String getSymbole() {
@@ -135,14 +132,6 @@ public class ValeurBoursiere {
         this.secteur = secteur;
     }
 
-    public String getIndustrie() {
-        return industrie;
-    }
-
-    public void setIndustrie(String industrie) {
-        this.industrie = industrie;
-    }
-
     /**
      * Retourne une représentation textuelle complète de cette valeur boursière.
      *
@@ -160,8 +149,7 @@ public class ValeurBoursiere {
                 ", pays='" + pays + '\'' +
                 ", anneeEntreeEnMarche=" + anneeEntreeEnMarche +
                 ", volume=" + volume +
-                ", secteur=" + secteur +
-                ", industrie='" + industrie + '\'' +
+                ", secteur=" + secteur + '\'' +
                 '}';
     }
 }
