@@ -65,13 +65,13 @@ public class ListeValeursBoursieres {
                 String[] valeurs = ligne.split(",");
                 String symbole = valeurs[0];
                 String nom = valeurs[1];
-                double derniereVente = Double.parseDouble(valeurs[2].replace("$", "").trim());
-                double changementNet = Double.parseDouble(valeurs[3]);
-                double pourcentageChangement = Double.parseDouble(valeurs[4].replace("%", "").trim()) / 100; //24% vers 0.24
-                double capitalisationBoursiere = Double.parseDouble(valeurs[5]);
+                double derniereVente = Util.toDouble(valeurs[2]);
+                double changementNet = Util.toDouble(valeurs[3]);
+                double pourcentageChangement = Util.toDouble(valeurs[4]) / 100; //24% vers 0.24
+                double capitalisationBoursiere = Util.toDouble(valeurs[5]);
                 String pays = valeurs[6];
-                int anneeEntreeEnMarche = Integer.parseInt(valeurs[7]);
-                int volume = Integer.parseInt(valeurs[8]);
+                int anneeEntreeEnMarche = Util.toInteger(valeurs[7]);
+                int volume = Util.toInteger(valeurs[8]);
                 String secteurTexte = valeurs[9];
 
                 TypeSecteur typeSecteur = convertisseur.convertir(secteurTexte.trim());

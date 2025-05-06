@@ -1,3 +1,5 @@
+package bourse;
+
 import java.util.Scanner;
 
 public class Util {
@@ -37,9 +39,39 @@ public class Util {
                 System.out.print(".");
                 Thread.sleep(500);
             }
-            System.out.println(" Terminé !");
+            System.out.println("\nTerminé !");
         } catch (InterruptedException e) {
             System.out.println("Chargement interrompu.");
+        }
+    }
+
+    public static double toDouble(String texte){
+        if (texte == null || texte.trim().isEmpty() || texte.trim().equalsIgnoreCase("null")) {
+            return 0.0;
+        }
+
+        try {
+            // Retirer les symboles inutiles comme $, %, , etc.
+            String nettoye = texte.replaceAll("[$%,]", "").trim();
+            return Double.parseDouble(nettoye);
+        } catch (NumberFormatException e) {
+            System.out.println("Impossible de convertir en double : " + texte);
+            return 0.0;
+        }
+    }
+
+    public static int toInteger(String texte){
+        if (texte == null || texte.trim().isEmpty() || texte.trim().equalsIgnoreCase("null")) {
+            return 0;
+        }
+
+        try {
+            // Retirer les symboles inutiles comme $, %, , etc.
+            String nettoye = texte.replaceAll("[$%,]", "").trim();
+            return Integer.parseInt(nettoye);
+        } catch (NumberFormatException e) {
+            System.out.println("Impossible de convertir en double : " + texte);
+            return 0;
         }
     }
 }
