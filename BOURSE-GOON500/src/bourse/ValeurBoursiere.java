@@ -40,6 +40,8 @@ public class ValeurBoursiere {
     public ValeurBoursiere(String symbole, String nom, double derniereVente, double changementNet,
                            double pourcentageChangement, double capitalisationBoursiere, String pays,
                            int anneeEntreeEnMarche, int volume, TypeSecteur secteur) {
+        validerSymbole(symbole);
+        validerDerniereVente(derniereVente);
         this.symbole = symbole;
         this.nom = nom;
         this.derniereVente = derniereVente;
@@ -130,6 +132,42 @@ public class ValeurBoursiere {
 
     public void setSecteur(TypeSecteur secteur) {
         this.secteur = secteur;
+    }
+
+    /**
+     * Valide le symbole boursier de l'entreprise.
+     * <p>
+     * Un symbole valide doit contenir un maximum de 5 caractères, conformément aux
+     * standards des bourses comme le NYSE.
+     * </p>
+     *
+     * @param symbole Le symbole boursier à valider.
+     * @throws IllegalArgumentException si le symbole dépasse 5 caractères.
+     */
+    public void validerSymbole(String symbole) {
+        if (symbole.length() <= 5) {
+            return;
+        } else {
+            throw new IllegalArgumentException("Symbole d'entreprise invalide, 5 caractères max !");
+        }
+    }
+
+    /**
+     * Valide le dernier prix de vente de l'action.
+     * <p>
+     * La valeur doit être strictement supérieure à zéro, car un prix de vente nul ou négatif
+     * n'est pas réaliste dans un contexte boursier.
+     * </p>
+     *
+     * @param derniereVente Le prix de vente à valider.
+     * @throws IllegalArgumentException si la valeur est inférieure ou égale à zéro.
+     */
+    public void validerDerniereVente(double derniereVente) {
+        if (derniereVente > 0) {
+            return;
+        } else {
+            throw new IllegalArgumentException("Dernière vente invalide, elle doit être > 0");
+        }
     }
 
     /**
