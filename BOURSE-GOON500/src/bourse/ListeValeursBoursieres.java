@@ -2,6 +2,7 @@ package bourse;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Représente une collection de {@link ValeurBoursiere} pouvant être chargée depuis un fichier CSV.
@@ -59,7 +60,6 @@ public class ListeValeursBoursieres {
             BufferedReader fichier = new BufferedReader(new FileReader(pathIn));
 
             ligne = fichier.readLine();
-            ligne = fichier.readLine();
 
             while (ligne != null) {
                 String[] valeurs = ligne.split(",");
@@ -90,6 +90,10 @@ public class ListeValeursBoursieres {
         } catch (IOException e) {
             System.out.println("Erreur lors de la lecture du fichier : " + e);
         }
+    }
+
+    public ArrayList<ValeurBoursiere> getValeursBoursieres() {
+        return valeursBoursieres;
     }
 
     /**
