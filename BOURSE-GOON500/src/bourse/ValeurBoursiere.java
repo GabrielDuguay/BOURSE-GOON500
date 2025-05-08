@@ -42,6 +42,7 @@ public class ValeurBoursiere {
                            int anneeEntreeEnMarche, int volume, TypeSecteur secteur) {
         validerDerniereVente(derniereVente);
         validerSymbole(symbole);
+        this.symbole = symbole;
         this.nom = nom;
         this.derniereVente = derniereVente;
         this.changementNet = changementNet;
@@ -160,7 +161,7 @@ public class ValeurBoursiere {
      * @throws IllegalArgumentException si la valeur est inférieure ou égale à zéro.
      */
     public void validerDerniereVente(double derniereVente) {
-        if (derniereVente < 0) {
+        if (derniereVente <= 0) {
             throw new IllegalArgumentException("Dernière vente invalide, elle doit être > 0");
         }
     }

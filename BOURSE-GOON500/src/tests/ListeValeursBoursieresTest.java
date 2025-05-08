@@ -1,15 +1,21 @@
 package tests;
 
+import bourse.ListeValeursBoursieres;
 import org.junit.jupiter.api.Test;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//Vérifier si y'a le bon nombre de valeurs sans vérifier 1 par 1. (à voir)
-
 class ListeValeursBoursieresTest {
-
     @Test
-    void chargerDepuisCSV() {
-    }
+    void chargerDepuisCSV_nbValeursAttendu() {
 
+
+
+        ListeValeursBoursieres liste = new ListeValeursBoursieres();
+
+        // Vérifie que la liste a le bon nombre de valeurs
+        assertNotNull(liste);
+        assertEquals(10, liste.getValeursBoursieres().size());
+    }
 }
