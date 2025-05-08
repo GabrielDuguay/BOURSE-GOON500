@@ -7,7 +7,7 @@ public class Main {
         boolean donneeschargees = false;
 
         do {
-            printTitle("---------- BOURSE & GOON 500 ----------", 100);
+            printTitle("---------- BOURSE & GOON 500 ----------", 75);
             //System.out.println("\n---------- BOURSE & GOON 500 ----------");
             do {
                 choix = Util.lireInt("1. Charger les données\n2. Afficher toutes les entreprises\n3. Quitter\n");

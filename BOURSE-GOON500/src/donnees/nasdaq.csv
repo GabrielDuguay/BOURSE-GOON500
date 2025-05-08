@@ -1945,7 +1945,7 @@ EBTC,Enterprise Bancorp Inc Common Stock,$36.80,0.14,0.382%,458490501.00,United 
 EC,Ecopetrol S.A. American Depositary Shares,$8.47,-0.82,-8.827%,17412920205.00,Colombia,null,3871127,Energy,Oil & Gas Production
 ECAT,BlackRock ESG Capital Allocation Term Trust Common Shares of Beneficial Interest,$15.18,0.13,0.864%,1641489300.00,United States,2021,217000,Finance,Trusts Except Educational Religious and Charitable
 ECBK,ECB Bancorp Inc. Common Stock,$16.12,-0.22,-1.346%,145995842.00,United States,2022,14386,Finance,Banks
-ECC           ,Eagle Point Credit Company Inc. Common Stock,$7.81,0.03,0.386%,473774312.00,United States,2014,853023,Finance,Trusts Except Educational Religious and Charitable
+ECC,Eagle Point Credit Company Inc. Common Stock,$7.81,0.03,0.386%,473774312.00,United States,2014,853023,Finance,Trusts Except Educational Religious and Charitable
 ECC^D,Eagle Point Credit Company Inc. 6.75% Series D Preferred Stock,$18.98,-0.0193,-0.102%,null,United States,null,16146,null,
 ECCC,Eagle Point Credit Company Inc. 6.50% Series C Term Preferred Stock due 2031,$22.38,-0.107,-0.476%,1357627287.00,United States,null,1350,Finance,Trusts Except Educational Religious and Charitable
 ECCF,Eagle Point Credit Company Inc. 8.00% Series F Term Preferred Stock due 2029,$24.88,0.30,1.221%,27086179961.00,United States,null,5568,null,
@@ -2168,7 +2168,7 @@ ETSY,Etsy Inc. Common Stock,$45.88,0.02,0.044%,4912479326.00,United States,2015,
 ETV,Eaton Vance Corporation Eaton Vance Tax-Managed Buy-Write Opportunities Fund Common Shares of Beneficial Interest,$12.81,-0.02,-0.156%,1399727551.00,United States,2005,237569,Finance,Investment Bankers/Brokers/Service
 ETW,Eaton Vance Corporation Eaton Vance Tax-Managed Global Buy-Write Opportunites Fund Common Shares of Beneficial Interest,$8.05,0.01,0.124%,882262177.00,United States,2005,393309,Finance,Investment Managers
 ETWO,E2open Parent Holdings Inc.Class A Common Stock,$2.08,-0.06,-2.804%,643439900.00,United States,2020,1442727,Technology,EDP Services
-ETX           ,Eaton Vance Municipal Income 2028 Term Trust Common Shares of Beneficial Interest,$18.25,0.25,1.389%,198650447.00,null,2013,14857,Finance,Investment Managers
+ETX,Eaton Vance Municipal Income 2028 Term Trust Common Shares of Beneficial Interest,$18.25,0.25,1.389%,198650447.00,null,2013,14857,Finance,Investment Managers
 ETY,Eaton Vance Tax-Managed Diversified Equity Income Fund Common Shares of Beneficial Interest,$13.65,-0.04,-0.292%,0.00,United States,2006,184501,Finance,Finance Companies
 EU,enCore Energy Corp. Common Shares,$1.63,0.03,1.875%,303605888.00,United States,null,1416468,Basic Materials,Other Metals and Minerals
 EUDA,EUDA Health Holdings Limited Ordinary Shares,$3.74,-0.09,-2.35%,131386200.00,Singapore,2021,108194,Health Care,Medical/Nursing Services
@@ -5412,7 +5412,7 @@ SAM,Boston Beer Company Inc. (The) Common Stock,$238.01,-9.88,-3.986%,2652860888
 SAMG,Silvercrest Asset Management Group Inc. Class A Common Stock,$15.19,0.16,1.065%,207101265.00,United States,2013,57958,Finance,Investment Managers
 SAN,Banco Santander S.A. Sponsored ADR (Spain),$7.44,0.18,2.479%,110109585750.00,Spain,null,4488408,Finance,Commercial Banks
 SANA,Sana Biotechnology Inc. Common Stock,$1.76,-0.01,-0.565%,396043822.00,United States,2021,1694864,Health Care,Biotechnology: Biological Products (No Diagnostic Substances)
-SAND          ,Sandstorm Gold Ltd. Ordinary Shares (Canada),$8.54,0.10,1.185%,2529031672.00,Canada,null,5469474,Basic Materials,Precious Metals
+SAND,Sandstorm Gold Ltd. Ordinary Shares (Canada),$8.54,0.10,1.185%,2529031672.00,Canada,null,5469474,Basic Materials,Precious Metals
 SANG,Sangoma Technologies Corporation Common Shares,$5.6294,-0.1306,-2.267%,188797038.00,Canada,null,1677,Technology,Computer Software: Programming Data Processing
 SANM,Sanmina Corporation Common Stock,$80.73,-1.51,-1.836%,4385683003.00,United States,1993,561114,Technology,Electrical Products
 SANW,S&W Seed Company Common Stock (NV),$4.55,-0.325,-6.667%,9760351.00,United States,null,3669,Consumer Staples,Farming/Seeds/Milling
@@ -6110,7 +6110,7 @@ TNET,TriNet Group Inc. Common Stock,$79.48,2.19,2.833%,3936449753.00,United Stat
 TNFA,TNF Pharmaceuticals Inc. Common Stock,$0.2228,0.0028,1.273%,2257548.00,United States,2014,4156071,Health Care,Biotechnology: In Vitro & In Vivo Diagnostic Substances
 TNGX,Tango Therapeutics Inc.,$1.49,0.03,2.055%,161080756.00,United States,2020,633991,Health Care,Biotechnology: Pharmaceutical Preparations
 TNK,Teekay Tankers Ltd.,$42.24,-0.07,-0.165%,1452303368.00,Bermuda,2007,816439,Consumer Discretionary,Marine Transportation
-TNL,Travel   Leisure Co. Common  Stock,$44.00,-0.02,-0.045%,2922286180.00,United States,null,909950,Consumer Discretionary,Hotels/Resorts
+TNL,Travel Leisure Co. Common  Stock,$44.00,-0.02,-0.045%,2922286180.00,United States,null,909950,Consumer Discretionary,Hotels/Resorts
 TNMG,TNL Mediagene Ordinary Shares,$0.3237,0.0304,10.365%,7968749.00,Taiwan,null,238976,null,
 TNON,Tenon Medical Inc. Common Stock,$1.19,0.02,1.709%,6646108.00,United States,2022,381648,Health Care,Medical/Dental Instruments
 TNONW,Tenon Medical Inc. Warrant,$0.0239,0.0042,21.32%,133481.00,United States,null,20738,Health Care,Medical/Dental Instruments

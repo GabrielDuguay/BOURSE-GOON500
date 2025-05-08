@@ -40,9 +40,8 @@ public class ValeurBoursiere {
     public ValeurBoursiere(String symbole, String nom, double derniereVente, double changementNet,
                            double pourcentageChangement, double capitalisationBoursiere, String pays,
                            int anneeEntreeEnMarche, int volume, TypeSecteur secteur) {
-        validerSymbole(symbole);
         validerDerniereVente(derniereVente);
-        this.symbole = symbole;
+        validerSymbole(symbole);
         this.nom = nom;
         this.derniereVente = derniereVente;
         this.changementNet = changementNet;
@@ -145,9 +144,7 @@ public class ValeurBoursiere {
      * @throws IllegalArgumentException si le symbole dépasse 5 caractères.
      */
     public void validerSymbole(String symbole) {
-        if (symbole.length() <= 5) {
-            return;
-        } else {
+        if (symbole.length() > 6) {
             throw new IllegalArgumentException("Symbole d'entreprise invalide, 5 caractères max !");
         }
     }
@@ -163,9 +160,7 @@ public class ValeurBoursiere {
      * @throws IllegalArgumentException si la valeur est inférieure ou égale à zéro.
      */
     public void validerDerniereVente(double derniereVente) {
-        if (derniereVente > 0) {
-            return;
-        } else {
+        if (derniereVente < 0) {
             throw new IllegalArgumentException("Dernière vente invalide, elle doit être > 0");
         }
     }
