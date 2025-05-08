@@ -10,12 +10,10 @@ class ListeValeursBoursieresTest {
     @Test
     void chargerDepuisCSV_nbValeursAttendu() {
 
-
-
         ListeValeursBoursieres liste = new ListeValeursBoursieres();
+        liste.chargerDepuisCSV();
 
         // Vérifie que la liste a le bon nombre de valeurs
-        assertNotNull(liste);
-        assertEquals(10, liste.getValeursBoursieres().size());
+        assertEquals(6861, liste.getValeursBoursieres().size());
     }
 }

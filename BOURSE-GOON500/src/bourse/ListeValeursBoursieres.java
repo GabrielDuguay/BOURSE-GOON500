@@ -60,6 +60,8 @@ public class ListeValeursBoursieres {
             BufferedReader fichier = new BufferedReader(new FileReader(pathIn));
 
             ligne = fichier.readLine();
+            ligne = fichier.readLine();
+
 
             while (ligne != null) {
                 String[] valeurs = ligne.split(",");
