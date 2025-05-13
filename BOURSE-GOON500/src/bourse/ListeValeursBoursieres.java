@@ -1,6 +1,7 @@
 package bourse;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,6 +105,20 @@ public class ListeValeursBoursieres {
         return copieTrie;
     }
 
+    //crée un tableau avec le secteur spécifié seulement et non un trisecteur -> ☢️
+    public ArrayList<ValeurBoursiere> triSecteur(TypeSecteur secteurDemandé) {
+        ArrayList<ValeurBoursiere> copieTrie = new ArrayList<>(); // copier les données existants
+
+        for (ValeurBoursiere vb : valeursBoursieres) { // filtre TypeSecteur
+            if (vb.getSecteur() == secteurDemandé) {
+                copieTrie.add(vb);
+            }
+        }
+
+        return copieTrie;
+    }
+
+
     public void afficherTopPourcentageChangement(int nb) {
         ArrayList<ValeurBoursiere> top = triPourcentageChangement();
         System.out.println("\nTop " + nb + " des compagnies selon le pourcentage de changement :\n");
@@ -114,6 +129,7 @@ public class ListeValeursBoursieres {
         }
         System.out.println();
     }
+
 
     /**
      * Retourne une chaîne représentant toutes les valeurs boursières chargées.
