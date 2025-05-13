@@ -1,36 +1,46 @@
 import bourse.*;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception {
         ListeValeursBoursieres liste = new ListeValeursBoursieres();
         boolean donneesChargees = false;
-        int choix;
+        int choix = 0;
 
         do {
             printTitle("\u001B[1;32m" + "---------- BOURSE & GOON 500 ----------", 30);
-            do {
-                choix = Util.lireInt("""
-                        1. Charger les données
-                        2. Sélectionner un secteur
-                        3. Voir les statistiques globales
-                        4. Afficher les meilleurs secteurs
-                        5. Quitter
-                        """);
-                if (choix < 1 || choix > 5) {
-                    System.out.println("Entrée invalide. Veuillez entrer un entier parmi les choix suivants :\n------------------------------");
-                }
-            } while (choix < 1 || choix > 5);
+            String entree = Util.lireString("""
+                    1. Charger les données
+                    2. Sélectionner un secteur
+                    3. Voir les statistiques globales
+                    4. Afficher les meilleurs secteurs
+                    5. Quitter
+                    """);
+
+            if (entree.equalsIgnoreCase("GOON")) {
+                afficherCredits();
+                continue;
+            }
+
+            try {
+                choix = Integer.parseInt(entree);
+            } catch (NumberFormatException e) {
+                choix = -1;
+            }
+
+            if (choix < 1 || choix > 5) {
+                System.out.println("Entrée invalide. Veuillez entrer un entier parmi les choix suivants :\n---------------------------------------");
+                continue;
+            }
 
             if (choix == 1) {
                 if (donneesChargees) {
                     System.out.println("Les données du NASDAQ ont déjà été chargées!");
-                    Thread.sleep(100);
+                    Thread.sleep(1250);
                 } else {
-                    Util.tempsChargement("Chargement des données du NASDAQ...", 1);
+                    Util.tempsChargement("Chargement des données du NASDAQ...", 2);
                     liste.chargerDepuisCSV();
                     donneesChargees = true;
                 }
@@ -111,9 +121,8 @@ public class Main {
                 } else {
                     System.out.println("Veuillez d'abord charger les données avec l'option 1.");
                 }
-            }
 
-            else if (choix == 4) {
+            } else if (choix == 4) {
                 if (donneesChargees) {
                     liste.afficherClassementDesSecteurs();
                 } else {
@@ -137,5 +146,21 @@ public class Main {
             }
         }
         System.out.println(); // saut de ligne
+    }
+
+    private static void afficherCredits() throws Exception {
+        System.out.println("\n\u001B[1;36m✨ CRÉDITS ✨\u001B[0m");
+        Thread.sleep(500);
+        System.out.println("Une production maison signée :\n");
+        Thread.sleep(700);
+        System.out.println("\u001B[1;33m🎩 Gabriel Duguay\u001B[0m — Lead développeur, visionnaire du GOON 500™");
+        Thread.sleep(700);
+        System.out.println("\u001B[1;35m🧠 Steven Rosberry\u001B[0m — Stratège boursier, gooner en chef");
+        Thread.sleep(700);
+        System.out.println("\u001B[1;32m🤖 ChatGPT (OpenAI)\u001B[0m — Assistant IA fidèle, shoutout OpenAI");
+        Thread.sleep(1000);
+        System.out.println("\nMerci d’utiliser \u001B[1;32mBOURSE & GOON 500 🤑📈\u001B[0m");
+        System.out.println("Appuyez sur Entrée pour revenir au menu principal.");
+        System.in.read();
     }
 }
