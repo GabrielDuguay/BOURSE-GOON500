@@ -69,7 +69,7 @@ public class ListeValeursBoursieres {
                 String nom = valeurs[1];
                 double derniereVente = Util.toDouble(valeurs[2]);
                 double changementNet = Util.toDouble(valeurs[3]);
-                double pourcentageChangement = Util.toDouble(valeurs[4]) / 100; //24% vers 0.24
+                double pourcentageChangement = Util.toDouble(valeurs[4]);
                 double capitalisationBoursiere = Util.toDouble(valeurs[5]);
                 String pays = valeurs[6];
                 int anneeEntreeEnMarche = Util.toInteger(valeurs[7]);
@@ -102,6 +102,17 @@ public class ListeValeursBoursieres {
         ArrayList<ValeurBoursiere> copieTrie = new ArrayList<>(valeursBoursieres); // copier les données existantes
         copieTrie.sort((v1, v2) -> Double.compare(v2.getPourcentageChangement(), v1.getPourcentageChangement())); // tri décroissant
         return copieTrie;
+    }
+
+    public void afficherTopPourcentageChangement(int nb) {
+        ArrayList<ValeurBoursiere> top = triPourcentageChangement();
+        System.out.println("\nTop " + nb + " des compagnies selon le pourcentage de changement :\n");
+
+        for (int i = 0; i < Math.min(nb, top.size()); i++) {
+            ValeurBoursiere vb = top.get(i);
+            System.out.printf("%2d. %s | Changement: %.2f%%\n", i + 1, vb.getNom(), vb.getPourcentageChangement());
+        }
+        System.out.println();
     }
 
     /**
