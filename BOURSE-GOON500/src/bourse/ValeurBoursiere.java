@@ -173,17 +173,17 @@ public class ValeurBoursiere {
      */
     @Override
     public String toString() {
-        return "ValeurBoursiere{" +
-                "symbole='" + symbole + '\'' +
-                ", nom='" + nom + '\'' +
-                ", derniereVente=" + derniereVente +
-                ", changementNet=" + changementNet +
-                ", pourcentageChangement=" + pourcentageChangement +
-                ", capitalisationBoursiere=" + capitalisationBoursiere +
-                ", pays='" + pays + '\'' +
-                ", anneeEntreeEnMarche=" + anneeEntreeEnMarche +
-                ", volume=" + volume +
-                ", secteur=" + secteur + '\'' +
-                '}';
+        return String.format(
+                "%-6s | %-30s | Vente: %8.2f $ | Chg: %+6.2f %% | Cap: %10.2f M$ | Vol: %-8d | %s (%d) [%s]",
+                symbole,
+                nom.length() > 30 ? nom.substring(0, 27) + "..." : nom,
+                derniereVente,
+                pourcentageChangement,
+                capitalisationBoursiere,
+                volume,
+                pays,
+                anneeEntreeEnMarche,
+                secteur
+        );
     }
 }

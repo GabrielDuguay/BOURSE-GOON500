@@ -3,6 +3,7 @@ package bourse;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -127,6 +128,120 @@ public class ListeValeursBoursieres {
             ValeurBoursiere vb = top.get(i);
             System.out.printf("%2d. %s | Changement: %.2f%%\n", i + 1, vb.getNom(), vb.getPourcentageChangement());
         }
+        System.out.println();
+    }
+
+    /**
+     * Affiche les statistiques globales sur les variations en pourcentage
+     * des valeurs boursières chargées : moyenne, médiane, min, max, écart-type.
+     */
+    public void afficherStatistiquesGlobales() {
+
+        ArrayList<Double> pourcentages = new ArrayList<>();
+        double somme = 0;
+
+        for (ValeurBoursiere vb : valeursBoursieres) {
+            double pct = vb.getPourcentageChangement();
+            pourcentages.add(pct);
+            somme += pct;
+        }
+
+        // Moyenne
+        double moyenne = somme / pourcentages.size();
+
+        // Tri pour médiane et min/max
+        pourcentages.sort(Double::compareTo);
+        double min = pourcentages.get(0);
+        double max = pourcentages.get(pourcentages.size() - 1);
+        double mediane;
+        int taille = pourcentages.size();
+        if (taille % 2 == 0) {
+            mediane = (pourcentages.get(taille / 2 - 1) + pourcentages.get(taille / 2)) / 2;
+        } else {
+            mediane = pourcentages.get(taille / 2);
+        }
+
+        // Écart-type
+        double sommeCarres = 0;
+        for (double pct : pourcentages) {
+            sommeCarres += Math.pow(pct - moyenne, 2);
+        }
+        double ecartType = Math.sqrt(sommeCarres / pourcentages.size());
+
+        // Affichage
+        System.out.println("\nStatistiques globales sur les pourcentages de changement :\n");
+        System.out.printf("→ Moyenne     : %8.2f %%\n", moyenne);
+        System.out.printf("→ Médiane     : %8.2f %%\n", mediane);
+        System.out.printf("→ Min         : %8.2f %%\n", min);
+        System.out.printf("→ Max         : %8.2f %%\n", max);
+        System.out.printf("→ Écart-type  : %8.2f\n", ecartType);
+        System.out.println();
+    }
+
+    public void afficherStatistiquesPourSecteur(TypeSecteur secteur) {
+        ArrayList<ValeurBoursiere> entreprises = triSecteur(secteur);
+        if (entreprises.isEmpty()) {
+            System.out.println("Aucune donnée pour ce secteur.");
+            return;
+        }
+
+        ArrayList<Double> pourcentages = new ArrayList<>();
+        double somme = 0;
+
+        for (ValeurBoursiere vb : entreprises) {
+            double pct = vb.getPourcentageChangement();
+            pourcentages.add(pct);
+            somme += pct;
+        }
+
+        double moyenne = somme / pourcentages.size();
+        pourcentages.sort(Double::compareTo);
+        double min = pourcentages.get(0);
+        double max = pourcentages.get(pourcentages.size() - 1);
+        double mediane;
+        int n = pourcentages.size();
+        if (n % 2 == 0)
+            mediane = (pourcentages.get(n/2 - 1) + pourcentages.get(n/2)) / 2;
+        else
+            mediane = pourcentages.get(n/2);
+
+        double variance = 0;
+        for (double pct : pourcentages) {
+            variance += Math.pow(pct - moyenne, 2);
+        }
+        double ecartType = Math.sqrt(variance / pourcentages.size());
+
+        System.out.println("\nStatistiques pour le secteur " + secteur + " :");
+        System.out.printf("→ Moyenne     : %8.2f %%\n", moyenne);
+        System.out.printf("→ Médiane     : %8.2f %%\n", mediane);
+        System.out.printf("→ Min         : %8.2f %%\n", min);
+        System.out.printf("→ Max         : %8.2f %%\n", max);
+        System.out.printf("→ Écart-type  : %8.2f\n\n", ecartType);
+    }
+
+    public void afficherClassementDesSecteurs() {
+        System.out.println("\nClassement des secteurs selon la moyenne du pourcentage de changement :\n");
+
+        HashMap<TypeSecteur, ArrayList<Double>> map = new HashMap<>();
+
+        for (ValeurBoursiere vb : valeursBoursieres) {
+            map.putIfAbsent(vb.getSecteur(), new ArrayList<>());
+            map.get(vb.getSecteur()).add(vb.getPourcentageChangement());
+        }
+
+        ArrayList<TypeSecteur> classement = new ArrayList<>(map.keySet());
+        classement.sort((s1, s2) -> {
+            double moy1 = map.get(s1).stream().mapToDouble(Double::doubleValue).average().orElse(0);
+            double moy2 = map.get(s2).stream().mapToDouble(Double::doubleValue).average().orElse(0);
+            return Double.compare(moy2, moy1); // tri décroissant
+        });
+
+        for (int i = 0; i < classement.size(); i++) {
+            TypeSecteur secteur = classement.get(i);
+            double moyenne = map.get(secteur).stream().mapToDouble(Double::doubleValue).average().orElse(0);
+            System.out.printf("%2d. %-20s : %.2f %%\n", i + 1, secteur, moyenne);
+        }
+
         System.out.println();
     }
 
