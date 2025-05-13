@@ -98,11 +98,18 @@ public class ListeValeursBoursieres {
         return valeursBoursieres;
     }
 
+    public ArrayList<ValeurBoursiere> triPourcentageChangement() {
+        ArrayList<ValeurBoursiere> copieTrie = new ArrayList<>(valeursBoursieres); // copier les données existantes
+        copieTrie.sort((v1, v2) -> Double.compare(v2.getPourcentageChangement(), v1.getPourcentageChangement())); // tri décroissant
+        return copieTrie;
+    }
+
     /**
      * Retourne une chaîne représentant toutes les valeurs boursières chargées.
      *
      * @return Une chaîne contenant un résumé texte de chaque {@link ValeurBoursiere}
      */
+
     @Override
     public String toString() {
         StringBuilder retour = new StringBuilder();
